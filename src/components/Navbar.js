@@ -12,11 +12,17 @@ const Navbar = () => {
     >
       <Container>
         <LinkContainer to="/">
-          <BootstrapNavbar.Brand>
-            <span className="material-icons" style={{ verticalAlign: 'middle', marginLeft: '0.5rem' }}>
-              code
-            </span>
-            مطور
+          <BootstrapNavbar.Brand className="d-flex align-items-center">
+            {/* Logo Image */}
+            <img 
+              src="/logo-dark.png" 
+              alt="مطور" 
+              style={{
+                height: '40px',
+                width: 'auto',
+                marginLeft: '0.5rem'
+              }}
+            />
           </BootstrapNavbar.Brand>
         </LinkContainer>
         

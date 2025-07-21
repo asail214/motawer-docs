@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useProgress } from '../contexts/ProgressContext';
 
 const ReactLogo = () => (
-  <svg className="react-logo" viewBox="-11.5 -10.23174 23 20.46348">
+  <svg className="react-logo-hero" viewBox="-11.5 -10.23174 23 20.46348">
     <circle cx="0" cy="0" r="2.05" fill="currentColor" style={{color: '#61dafb'}}/>
     <g stroke="currentColor" strokeWidth="1" fill="none" style={{color: '#61dafb'}}>
       <ellipse rx="11" ry="4.2"/>
@@ -29,12 +29,13 @@ const LearningPathCard = ({ number, title, description, path, completed }) => (
     <div className={`feature-card h-100 ${completed ? 'border-success' : ''}`}>
       <div className="d-flex align-items-center mb-3">
         <div 
-          className={`rounded-circle d-flex align-items-center justify-content-center me-3`}
+          className={`rounded-circle d-flex align-items-center justify-content-center me-1`}
           style={{
             width: '40px', 
             height: '40px', 
             backgroundColor: completed ? '#28a745' : 'var(--primary-color)',
-            color: completed ? 'white' : 'var(--darker-bg)'
+            color: completed ? 'white' : 'var(--darker-bg)',
+            marginLeft: '1rem' 
           }}
         >
           {completed ? (
@@ -48,7 +49,7 @@ const LearningPathCard = ({ number, title, description, path, completed }) => (
       <p className="text-muted mb-3">{description}</p>
       <Link to={path} className="btn btn-outline-primary">
         {completed ? 'مراجعة' : 'ابدأ'}
-        <span className="material-icons ms-2">arrow_back</span>
+        <span className="material-icons ms-2" style={{verticalAlign: 'middle'}}>arrow_back</span>
       </Link>
     </div>
   </Col>
@@ -62,6 +63,11 @@ const LandingPage = () => {
     <>
       {/* Hero Section */}
       <div className="hero-section">
+        {/* Large React Logo Background */}
+        <div className="hero-logo-container">
+          <ReactLogo />
+        </div>
+        
         <Container>
           <Row className="align-items-center">
             <Col lg={6}>
@@ -105,8 +111,8 @@ const LandingPage = () => {
                 </div>
               </div>
             </Col>
-            <Col lg={6} className="text-center">
-              <ReactLogo />
+            <Col lg={6}>
+              {/* This column is now empty since logo is positioned absolutely */}
             </Col>
           </Row>
         </Container>

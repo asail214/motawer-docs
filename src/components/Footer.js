@@ -8,23 +8,56 @@ const Footer = () => {
       <Container>
         <Row>
           <Col lg={4} className="mb-4">
-            <h5 style={{color: 'var(--primary-color)'}}>مطور</h5>
+            {/* Logo and Brand */}
+            <div className="d-flex align-items-center mb-3">
+              <img 
+                src="/logo-dark.png" 
+                alt="مطور" 
+                style={{
+                  height: '50px',
+                  width: 'auto',
+                  marginLeft: '0.75rem'
+                }}
+              />
+            </div>
             <p className="text-muted">
-              منصة تعلم React باللغة العربية للمطورين العرب. 
-              نسعى لجعل تعلم البرمجة أكثر سهولة ووضوحاً.
+              منصة تعلم React باللغة العربية، أنشأها أسيل الشكيلي - مطور Front-End ومصمم UI/UX. 
+              نسعى لجعل تعلم البرمجة أكثر سهولة ووضوحاً للمطورين العرب.
             </p>
             <div className="social-links">
-              <a href="#" className="text-decoration-none me-3" title="فيسبوك">
-                <span className="material-icons" style={{color: 'var(--primary-color)'}}>facebook</span>
-              </a>
-              <a href="#" className="text-decoration-none me-3" title="تويتر">
-                <span className="material-icons" style={{color: 'var(--primary-color)'}}>alternate_email</span>
-              </a>
-              <a href="#" className="text-decoration-none me-3" title="GitHub">
+              <a 
+                href="https://github.com/asail214" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-decoration-none me-3" 
+                title="GitHub"
+              >
                 <span className="material-icons" style={{color: 'var(--primary-color)'}}>code</span>
               </a>
-              <a href="#" className="text-decoration-none" title="يوتيوب">
-                <span className="material-icons" style={{color: 'var(--primary-color)'}}>play_circle</span>
+              <a 
+                href="https://www.linkedin.com/in/asail-alshukaili-080226298" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-decoration-none me-3" 
+                title="LinkedIn"
+              >
+                <span className="material-icons" style={{color: 'var(--primary-color)'}}>work</span>
+              </a>
+              <a 
+                href="https://instagram.com/asail214" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-decoration-none me-3" 
+                title="Instagram"
+              >
+                <span className="material-icons" style={{color: 'var(--primary-color)'}}>camera_alt</span>
+              </a>
+              <a 
+                href="mailto:asail.m.h.99@gmail.com" 
+                className="text-decoration-none" 
+                title="البريد الإلكتروني"
+              >
+                <span className="material-icons" style={{color: 'var(--primary-color)'}}>email</span>
               </a>
             </div>
           </Col>
@@ -33,7 +66,7 @@ const Footer = () => {
             <h6>التعلم</h6>
             <ul className="list-unstyled">
               <li>
-                <Link to="/home" className="text-decoration-none text-muted">
+                <Link to="/frontend-basics" className="text-decoration-none text-muted">
                   الأساسيات
                 </Link>
               </li>
@@ -111,12 +144,12 @@ const Footer = () => {
         <Row>
           <Col md={6} className="mb-3">
             <p className="text-muted mb-0">
-              &copy; 2025 مطور. جميع الحقوق محفوظة.
+              &copy; 2025 مطور - أسيل الشكيلي. جميع الحقوق محفوظة.
             </p>
           </Col>
           <Col md={6} className="text-md-end">
             <p className="text-muted mb-0">
-              مبني بـ <span style={{color: '#e74c3c'}}>❤️</span> للمطورين العرب
+              صُنع بـ <span style={{color: '#e74c3c'}}>❤️</span> في عُمان للمطورين العرب
             </p>
           </Col>
         </Row>
