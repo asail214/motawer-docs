@@ -144,12 +144,12 @@ const Footer = () => {
         <Row>
           <Col md={6} className="mb-3">
             <p className="text-muted mb-0">
-              &copy; 2025 مطور - أسيل الشكيلي. جميع الحقوق محفوظة.
+              &copy; 2025 مطورة - أصايل الشكيلية. جميع الحقوق محفوظة.
             </p>
           </Col>
           <Col md={6} className="text-md-end">
             <p className="text-muted mb-0">
-              صُنع بـ <span style={{color: '#e74c3c'}}>❤️</span> في عُمان للمطورين العرب
+              صُنع في عُمان للمطورين العرب
             </p>
           </Col>
         </Row>
