@@ -1,21 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import './styles/App.css';
 
-// Import components
-import Navbar from './components/Navbar';
-import LandingPage from './components/LandingPage';
-import FrontendBasics from './components/FrontendBasics';
-import ReactIntroduction from './components/ReactIntroduction';
-import EnvironmentSetup from './components/EnvironmentSetup';
-import CoreConcepts from './components/CoreConcepts';
-import TodoProject from './components/TodoProject';
-import NextSteps from './components/NextSteps';
-import ContactPage from './components/ContactPage';
-import Footer from './components/Footer';
+// Import components from components folder
+import Navbar from './components/common/Navbar';
+import Footer from './components/common/Footer';
 
-// Fixed import path - added 's' to contexts
+// Import pages from pages folder
+import LandingPage from './pages/LandingPage';
+import FrontendBasics from './pages/FrontendBasics';
+import ReactIntroduction from './pages/ReactIntroduction';
+import EnvironmentSetup from './pages/EnvironmentSetup';
+import CoreConcepts from './pages/CoreConcepts';
+import TodoProject from './pages/TodoProject';
+import NextSteps from './pages/NextSteps';
+import ContactPage from './pages/ContactPage';
+
+// Import context
 import ProgressProvider from './contexts/ProgressContext';
 
 function App() {
