@@ -14,6 +14,8 @@ import TodoProject from './components/TodoProject';
 import NextSteps from './components/NextSteps';
 import ContactPage from './components/ContactPage';
 import Footer from './components/Footer';
+
+// Fixed import path - added 's' to contexts
 import ProgressProvider from './contexts/ProgressContext';
 
 function App() {
