@@ -324,6 +324,11 @@ body {
   font-weight: 500;
 }
 
+.contact-item strong {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
 /* Footer - Improved contrast */
 .footer {
   background-color: var(--darker-bg);
