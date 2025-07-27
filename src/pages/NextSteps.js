@@ -49,7 +49,7 @@ const NextSteps = () => {
         </Row>
 
         <Row>
-          <Col lg={8}>
+        <Col lg={9} md={8}>
             {/* Congratulations */}
             <Card className="tutorial-card mb-4" style={{background: 'linear-gradient(135deg, rgba(97, 218, 251, 0.1), rgba(40, 167, 69, 0.1))'}}>
               <Card.Body className="text-center">
@@ -433,7 +433,7 @@ const NextSteps = () => {
           </Col>
 
           {/* Sidebar */}
-          <Col lg={4}>
+          <Col lg={3} md={4}>
             <div className="feature-card sticky-top" style={{top: '100px'}}>
               <h4>🎯 خارطة الطريق</h4>
               <div className="roadmap-steps">

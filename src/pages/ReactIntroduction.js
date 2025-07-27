@@ -56,7 +56,7 @@ const ReactIntroduction = () => {
         </Row>
 
         <Row>
-          <Col lg={8}>
+        <Col lg={9} md={8}>
             {/* What is React */}
             <Card className="tutorial-card mb-4">
               <Card.Body>
@@ -277,7 +277,7 @@ function Welcome() {
           </Col>
 
           {/* Sidebar */}
-          <Col lg={4}>
+          <Col lg={3} md={4}>
             <div className="feature-card sticky-top" style={{top: '100px'}}>
               <h4>محتويات هذا الدرس</h4>
               <ul className="list-unstyled">

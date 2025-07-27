@@ -56,7 +56,7 @@ const EnvironmentSetup = () => {
         </Row>
 
         <Row>
-          <Col lg={8}>
+        <Col lg={9} md={8}>
             {/* System Requirements */}
             <Card className="tutorial-card mb-4">
               <Card.Body>
@@ -401,7 +401,7 @@ code .
           </Col>
 
           {/* Sidebar */}
-          <Col lg={4}>
+          <Col lg={3} md={4}>
             <div className="feature-card sticky-top" style={{top: '100px'}}>
               <h4>قائمة التحقق</h4>
               <div className="checklist">

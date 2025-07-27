@@ -86,7 +86,7 @@ const TodoProject = () => {
         </Row>
 
         <Row>
-          <Col lg={8}>
+          <Col lg={9} md={8}>
             {/* Project Overview */}
             <Card className="tutorial-card mb-4">
               <Card.Body>
@@ -956,7 +956,7 @@ useEffect(() => {
           </Col>
 
           {/* Sidebar */}
-          <Col lg={4}>
+          <Col lg={3} md={4}>
             <div className="feature-card sticky-top" style={{top: '100px'}}>
               <h4>خطوات المشروع</h4>
               <div className="project-steps">

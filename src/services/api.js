@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://jsonplaceholder.typicode.com';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://httpbin.org';
 
 class ApiService {
   constructor() {
