@@ -79,7 +79,29 @@ const LandingPage = () => {
                   مناسب للمطورين العرب الذين يعرفون HTML وCSS وJavaScript.
                 </p>
                 
-                {/* Progress Display */}
+
+                <div className="hero-buttons">
+                  <Link to="/frontend-basics" className="btn btn-primary btn-lg">
+                    <span className="material-icons" style={{ verticalAlign: 'middle', marginLeft: '0.5rem' }}>
+                      play_arrow
+                    </span>
+                    ابدأ التعلم الآن
+                  </Link>
+                  <Link to="/tutorial" className="btn btn-outline-light btn-lg">
+                    <span className="material-icons" style={{ verticalAlign: 'middle', marginLeft: '0.5rem' }}>
+                      menu_book
+                    </span>
+                    الدليل السريع
+                  </Link>
+                  {/* <Link to="/contact" className="btn btn-outline-light btn-lg">
+                    <span className="material-icons" style={{ verticalAlign: 'middle', marginLeft: '0.5rem' }}>
+                      person
+                    </span>
+                    تواصل معي
+                  </Link> */}
+                </div>
+
+                                    {/* Progress Display */}
                 {progress > 0 && (
                   <div className="progress-display mb-4 p-3" style={{backgroundColor: 'rgba(97, 218, 251, 0.1)', borderRadius: '8px'}}>
                     <div className="d-flex justify-content-between align-items-center mb-2">
@@ -95,20 +117,6 @@ const LandingPage = () => {
                   </div>
                 )}
 
-                <div className="hero-buttons">
-                  <Link to="/frontend-basics" className="btn btn-primary btn-lg">
-                    <span className="material-icons" style={{ verticalAlign: 'middle', marginLeft: '0.5rem' }}>
-                      play_arrow
-                    </span>
-                    ابدأ التعلم الآن
-                  </Link>
-                  <Link to="/contact" className="btn btn-outline-light btn-lg">
-                    <span className="material-icons" style={{ verticalAlign: 'middle', marginLeft: '0.5rem' }}>
-                      person
-                    </span>
-                    تواصل معي
-                  </Link>
-                </div>
               </div>
             </Col>
             <Col lg={6}>

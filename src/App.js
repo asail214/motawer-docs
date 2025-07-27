@@ -16,6 +16,7 @@ import CoreConcepts from './pages/CoreConcepts';
 import TodoProject from './pages/TodoProject';
 import NextSteps from './pages/NextSteps';
 import ContactPage from './pages/ContactPage';
+import HomePage from './pages/HomePage';
 
 // Import context
 import ProgressProvider from './contexts/ProgressContext';
@@ -35,6 +36,8 @@ function App() {
             <Route path="/todo-project" element={<TodoProject />} />
             <Route path="/next-steps" element={<NextSteps />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/tutorial" element={<HomePage />} />
+            <Route path="/learn" element={<HomePage />} />
           </Routes>
           <Footer />
         </div>
