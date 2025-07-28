@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react';
-import { Container, Row, Col, Card, ProgressBar } from 'react-bootstrap';
+import { Container, Row, Col, Card, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useProgress } from '../contexts/ProgressContext';
+import { useAuth, useReduxProgress } from '../hooks/useRedux';
+import ProgressTracker from '../components/common/ProgressTracker';
+import AchievementNotification, { useAchievements } from '../components/common/AchievementNotification';
 
 const FrontendBasics = () => {
-  const { markAsCompleted, getProgress, getNextSection } = useProgress();
-  const nextSection = getNextSection('frontend-basics');
+  const { isAuthenticated, addPoints, addUserAchievement } = useAuth();
+  const { markCompleted, isCompleted } = useReduxProgress();
+  const { currentAchievement, showAchievement, hideAchievement } = useAchievements();
+
+  const sectionId = 'frontend-basics';
+  const sectionCompleted = isCompleted(sectionId);
+  const nextSection = { path: '/react-introduction', title: 'مقدمة عن React' };
 
   useEffect(() => {
     // Mark as completed when user scrolls to bottom
@@ -13,14 +20,21 @@ const FrontendBasics = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       
-      if (scrollPosition >= documentHeight - 100) {
-        markAsCompleted('frontend-basics');
+      if (scrollPosition >= documentHeight - 100 && !sectionCompleted) {
+        markCompleted(sectionId);
+        
+        // إضافة إنجاز للمسجلين
+        if (isAuthenticated) {
+          addPoints(10);
+          showAchievement('أساسيات الواجهات الأمامية!', 10);
+          addUserAchievement('خبير أساسيات الواجهات');
+        }
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [markAsCompleted]);
+  }, [markCompleted, sectionId, sectionCompleted, isAuthenticated, addPoints, showAchievement, addUserAchievement]);
 
   return (
     <div className="section">
@@ -28,17 +42,7 @@ const FrontendBasics = () => {
         {/* Progress Bar */}
         <Row className="mb-4">
           <Col>
-            <div className="progress-section">
-              <div className="d-flex justify-content-between align-items-center mb-2">
-                <h6 className="mb-0">تقدم التعلم</h6>
-                <small>{getProgress()}% مكتمل</small>
-              </div>
-              <ProgressBar 
-                now={getProgress()} 
-                variant="info" 
-                style={{backgroundColor: 'var(--card-bg)'}}
-              />
-            </div>
+            <ProgressTracker />
           </Col>
         </Row>
 
@@ -46,6 +50,15 @@ const FrontendBasics = () => {
           <Col xs={12} className="text-center mb-5">
             <h1 className="section-title">أساسيات تطوير الواجهات الأمامية</h1>
             <p className="lead">فهم أساسيات تطوير الواجهات الأمامية والدور الذي يلعبه React</p>
+            
+            {/* مؤشر إكمال الدرس */}
+            {sectionCompleted && (
+              <Alert variant="success" className="mt-3">
+                <span className="material-icons me-2">check_circle</span>
+                <strong>تم إكمال هذا الدرس!</strong>
+                {isAuthenticated && ' +10 نقاط تمت إضافتها لحسابك.'}
+              </Alert>
+            )}
           </Col>
         </Row>
 
@@ -157,6 +170,14 @@ const FrontendBasics = () => {
                     </div>
                   </Col>
                 </Row>
+
+                {/* رسالة تشجيعية للمسجلين */}
+                {isAuthenticated && (
+                  <Alert variant="info" className="mt-3">
+                    <span className="material-icons me-2">lightbulb</span>
+                    <strong>نصيحة:</strong> React ستفتح لك أبواب فرص العمل الكثيرة. استمر في التعلم!
+                  </Alert>
+                )}
               </Card.Body>
             </Card>
 
@@ -196,6 +217,9 @@ const FrontendBasics = () => {
             {/* Navigation */}
             <div className="navigation-section d-flex justify-content-between align-items-center">
               <div>
+                {/* لا يوجد درس سابق */}
+              </div>
+              <div>
                 <small className="text-muted">الدرس التالي</small>
                 {nextSection && (
                   <Link to={nextSection.path} className="btn btn-primary">
@@ -221,7 +245,46 @@ const FrontendBasics = () => {
               </div>
 
               <div className="feature-card">
-                <h4>نصائح للمبتدئين</h4>
+                <h4>🎯 أهداف التعلم</h4>
+                <div className="learning-objectives">
+                  <div className="objective-item mb-2">
+                    <span className="material-icons me-2 text-success">check_circle</span>
+                    فهم تطوير الواجهات الأمامية
+                  </div>
+                  <div className="objective-item mb-2">
+                    <span className="material-icons me-2 text-success">check_circle</span>
+                    معرفة التقنيات الأساسية
+                  </div>
+                  <div className="objective-item mb-2">
+                    <span className="material-icons me-2 text-success">check_circle</span>
+                    فهم دور React
+                  </div>
+                  <div className="objective-item mb-2">
+                    <span className="material-icons me-2 text-success">check_circle</span>
+                    الفرق بين Frontend و Backend
+                  </div>
+                </div>
+              </div>
+
+              {/* مكافآت للمسجلين */}
+              {isAuthenticated && (
+                <div className="feature-card">
+                  <h4>🎁 مكافآت هذا الدرس</h4>
+                  <div className="rewards">
+                    <div className="reward-item mb-2">
+                      <span className="material-icons me-2" style={{color: '#ffc107'}}>stars</span>
+                      10 نقاط عند الإكمال
+                    </div>
+                    <div className="reward-item mb-2">
+                      <span className="material-icons me-2" style={{color: '#28a745'}}>emoji_events</span>
+                      إنجاز "خبير أساسيات الواجهات"
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div className="feature-card">
+                <h4>💡 نصائح للمبتدئين</h4>
                 <div className="alert alert-info">
                   <strong>نصيحة:</strong> لا تقلق إذا بدت المفاهيم معقدة في البداية. التطوير مهارة تتحسن مع الوقت والممارسة!
                 </div>
@@ -229,6 +292,16 @@ const FrontendBasics = () => {
             </div>
           </Col>
         </Row>
+
+        {/* إشعار الإنجازات */}
+        {currentAchievement && (
+          <AchievementNotification
+            achievement={currentAchievement.achievement}
+            points={currentAchievement.points}
+            show={currentAchievement.show}
+            onClose={hideAchievement}
+          />
+        )}
       </Container>
     </div>
   );

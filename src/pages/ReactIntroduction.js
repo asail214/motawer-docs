@@ -1,26 +1,40 @@
 import React, { useEffect } from 'react';
-import { Container, Row, Col, Card, Button, ProgressBar, Badge } from 'react-bootstrap';
+import { Container, Row, Col, Card, ProgressBar, Badge, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useProgress } from '../contexts/ProgressContext';
+import { useAuth, useReduxProgress } from '../hooks/useRedux';
+import ProgressTracker from '../components/common/ProgressTracker';
+import AchievementNotification, { useAchievements } from '../components/common/AchievementNotification';
 
 const ReactIntroduction = () => {
-  const { markAsCompleted, getProgress, getNextSection, getPreviousSection } = useProgress();
-  const nextSection = getNextSection('react-introduction');
-  const previousSection = getPreviousSection('react-introduction');
+  const { isAuthenticated, addPoints, addUserAchievement } = useAuth();
+  const { markCompleted, isCompleted } = useReduxProgress();
+  const { currentAchievement, showAchievement, hideAchievement } = useAchievements();
+
+  const sectionId = 'react-introduction';
+  const sectionCompleted = isCompleted(sectionId);
+  const nextSection = { path: '/environment-setup', title: 'إعداد بيئة التطوير' };
+  const previousSection = { path: '/frontend-basics', title: 'أساسيات تطوير الواجهات' };
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       
-      if (scrollPosition >= documentHeight - 100) {
-        markAsCompleted('react-introduction');
+      if (scrollPosition >= documentHeight - 100 && !sectionCompleted) {
+        markCompleted(sectionId);
+        
+        // إضافة إنجاز للمسجلين
+        if (isAuthenticated) {
+          addPoints(10);
+          showAchievement('متعلم React المبتدئ!', 10);
+          addUserAchievement('متعلم React المبتدئ');
+        }
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [markAsCompleted]);
+  }, [markCompleted, sectionId, sectionCompleted, isAuthenticated, addPoints, showAchievement, addUserAchievement]);
 
   const CodeBlock = ({ children }) => (
     <div className="code-block">
@@ -34,17 +48,7 @@ const ReactIntroduction = () => {
         {/* Progress Bar */}
         <Row className="mb-4">
           <Col>
-            <div className="progress-section">
-              <div className="d-flex justify-content-between align-items-center mb-2">
-                <h6 className="mb-0">تقدم التعلم</h6>
-                <small>{getProgress()}% مكتمل</small>
-              </div>
-              <ProgressBar 
-                now={getProgress()} 
-                variant="info" 
-                style={{backgroundColor: 'var(--card-bg)'}}
-              />
-            </div>
+            <ProgressTracker />
           </Col>
         </Row>
 
@@ -52,6 +56,15 @@ const ReactIntroduction = () => {
           <Col xs={12} className="text-center mb-5">
             <h1 className="section-title">مقدمة عن React</h1>
             <p className="lead">تعرف على React وتاريخها ولماذا أصبحت الخيار الأول لتطوير الواجهات</p>
+            
+            {/* مؤشر إكمال الدرس */}
+            {sectionCompleted && (
+              <Alert variant="success" className="mt-3">
+                <span className="material-icons me-2">check_circle</span>
+                <strong>تم إكمال هذا الدرس!</strong>
+                {isAuthenticated && ' +10 نقاط تمت إضافتها لحسابك.'}
+              </Alert>
+            )}
           </Col>
         </Row>
 
@@ -128,6 +141,14 @@ const ReactIntroduction = () => {
                     <p>أحدث إصدار مع تحسينات في الأداء ومميزات جديدة مثل Server Components</p>
                   </div>
                 </div>
+
+                {/* رسالة تشجيعية للمسجلين */}
+                {isAuthenticated && (
+                  <Alert variant="primary" className="mt-3">
+                    <span className="material-icons me-2">history</span>
+                    <strong>معلومة مثيرة:</strong> React تطورت كثيراً منذ 2013، وما ستتعلمه هنا هو أحدث الممارسات!
+                  </Alert>
+                )}
               </Card.Body>
             </Card>
 
@@ -252,6 +273,14 @@ function Welcome() {
                     <li><code>&lt;Welcome /&gt;</code> - استخدام المكون كعنصر HTML</li>
                   </ul>
                 </div>
+
+                {/* تشجيع للمسجلين */}
+                {isAuthenticated && (
+                  <Alert variant="success" className="mt-3">
+                    <span className="material-icons me-2">code</span>
+                    <strong>ممتاز!</strong> الآن أنت تعرف كيف يبدو مكون React. في الدروس القادمة ستبني مكونات أكثر تعقيداً!
+                  </Alert>
+                )}
               </Card.Body>
             </Card>
 
@@ -314,9 +343,36 @@ function Welcome() {
                   <Badge bg="secondary" className="me-2 mb-2">Airbnb</Badge>
                 </div>
               </div>
+
+              {/* مكافآت للمسجلين */}
+              {isAuthenticated && (
+                <div className="feature-card">
+                  <h4>🎁 مكافآت هذا الدرس</h4>
+                  <div className="rewards">
+                    <div className="reward-item mb-2">
+                      <span className="material-icons me-2" style={{color: '#ffc107'}}>stars</span>
+                      10 نقاط عند الإكمال
+                    </div>
+                    <div className="reward-item mb-2">
+                      <span className="material-icons me-2" style={{color: '#28a745'}}>emoji_events</span>
+                      إنجاز "متعلم React المبتدئ"
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </Col>
         </Row>
+
+        {/* إشعار الإنجازات */}
+        {currentAchievement && (
+          <AchievementNotification
+            achievement={currentAchievement.achievement}
+            points={currentAchievement.points}
+            show={currentAchievement.show}
+            onClose={hideAchievement}
+          />
+        )}
       </Container>
     </div>
   );
