@@ -278,39 +278,41 @@ function Welcome() {
 
           {/* Sidebar */}
           <Col lg={3} md={4}>
-            <div className="feature-card sticky-top" style={{top: '100px'}}>
-              <h4>محتويات هذا الدرس</h4>
-              <ul className="list-unstyled">
-                <li><a href="#what-is-react" className="text-decoration-none">ما هي React؟</a></li>
-                <li><a href="#history" className="text-decoration-none">تاريخ React</a></li>
-                <li><a href="#comparison" className="text-decoration-none">مقارنة مع الإطارات الأخرى</a></li>
-                <li><a href="#react19" className="text-decoration-none">مميزات React 19</a></li>
-                <li><a href="#example" className="text-decoration-none">مثال بسيط</a></li>
-              </ul>
-            </div>
+            <div className="sidebar-container">
+              <div className="feature-card">
+                <h4>محتويات هذا الدرس</h4>
+                <ul className="list-unstyled">
+                  <li><a href="#what-is-react" className="text-decoration-none">ما هي React؟</a></li>
+                  <li><a href="#history" className="text-decoration-none">تاريخ React</a></li>
+                  <li><a href="#comparison" className="text-decoration-none">مقارنة مع الإطارات الأخرى</a></li>
+                  <li><a href="#react19" className="text-decoration-none">مميزات React 19</a></li>
+                  <li><a href="#example" className="text-decoration-none">مثال بسيط</a></li>
+                </ul>
+              </div>
 
-            <div className="feature-card mt-4">
-              <h4>📊 إحصائيات مثيرة</h4>
-              <div className="stats-item mb-2">
-                <strong style={{color: 'var(--primary-color)'}}>40.5%</strong> من المطورين يستخدمون React
+              <div className="feature-card">
+                <h4>📊 إحصائيات مثيرة</h4>
+                <div className="stats-item mb-2">
+                  <strong style={{color: 'var(--primary-color)'}}>40.5%</strong> من المطورين يستخدمون React
+                </div>
+                <div className="stats-item mb-2">
+                  <strong style={{color: 'var(--primary-color)'}}>200k+</strong> نجمة على GitHub
+                </div>
+                <div className="stats-item mb-2">
+                  <strong style={{color: 'var(--primary-color)'}}>10M+</strong> تنزيل أسبوعي على npm
+                </div>
               </div>
-              <div className="stats-item mb-2">
-                <strong style={{color: 'var(--primary-color)'}}>200k+</strong> نجمة على GitHub
-              </div>
-              <div className="stats-item mb-2">
-                <strong style={{color: 'var(--primary-color)'}}>10M+</strong> تنزيل أسبوعي على npm
-              </div>
-            </div>
 
-            <div className="feature-card mt-4">
-              <h4>💼 شركات تستخدم React</h4>
-              <div className="companies">
-                <Badge bg="secondary" className="me-2 mb-2">Facebook</Badge>
-                <Badge bg="secondary" className="me-2 mb-2">Netflix</Badge>
-                <Badge bg="secondary" className="me-2 mb-2">Instagram</Badge>
-                <Badge bg="secondary" className="me-2 mb-2">Uber</Badge>
-                <Badge bg="secondary" className="me-2 mb-2">WhatsApp</Badge>
-                <Badge bg="secondary" className="me-2 mb-2">Airbnb</Badge>
+              <div className="feature-card">
+                <h4>💼 شركات تستخدم React</h4>
+                <div className="companies">
+                  <Badge bg="secondary" className="me-2 mb-2">Facebook</Badge>
+                  <Badge bg="secondary" className="me-2 mb-2">Netflix</Badge>
+                  <Badge bg="secondary" className="me-2 mb-2">Instagram</Badge>
+                  <Badge bg="secondary" className="me-2 mb-2">Uber</Badge>
+                  <Badge bg="secondary" className="me-2 mb-2">WhatsApp</Badge>
+                  <Badge bg="secondary" className="me-2 mb-2">Airbnb</Badge>
+                </div>
               </div>
             </div>
           </Col>

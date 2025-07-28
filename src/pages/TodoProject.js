@@ -957,89 +957,91 @@ useEffect(() => {
 
           {/* Sidebar */}
           <Col lg={3} md={4}>
-            <div className="feature-card sticky-top" style={{top: '100px'}}>
-              <h4>خطوات المشروع</h4>
-              <div className="project-steps">
-                <div className="step-item d-flex align-items-center mb-2">
-                  <span className="material-icons me-2 text-success">check_circle</span>
-                  <span>1. إعداد المشروع</span>
-                </div>
-                <div className="step-item d-flex align-items-center mb-2">
-                  <span className="material-icons me-2 text-success">check_circle</span>
-                  <span>2. إدارة الحالة</span>
-                </div>
-                <div className="step-item d-flex align-items-center mb-2">
-                  <span className="material-icons me-2 text-success">check_circle</span>
-                  <span>3. إضافة المهام</span>
-                </div>
-                <div className="step-item d-flex align-items-center mb-2">
-                  <span className="material-icons me-2 text-success">check_circle</span>
-                  <span>4. عرض القائمة</span>
-                </div>
-                <div className="step-item d-flex align-items-center mb-2">
-                  <span className="material-icons me-2 text-success">check_circle</span>
-                  <span>5. وضع علامة مكتمل</span>
-                </div>
-                <div className="step-item d-flex align-items-center mb-2">
-                  <span className="material-icons me-2 text-success">check_circle</span>
-                  <span>6. حذف المهام</span>
-                </div>
-                <div className="step-item d-flex align-items-center mb-2">
-                  <span className="material-icons me-2 text-success">check_circle</span>
-                  <span>7. الإحصائيات</span>
-                </div>
-                <div className="step-item d-flex align-items-center mb-2">
-                  <span className="material-icons me-2 text-success">check_circle</span>
-                  <span>8. التنسيقات</span>
+            <div className="sidebar-container">
+              <div className="feature-card">
+                <h4>خطوات المشروع</h4>
+                <div className="project-steps">
+                  <div className="step-item d-flex align-items-center mb-2">
+                    <span className="material-icons me-2 text-success">check_circle</span>
+                    <span>1. إعداد المشروع</span>
+                  </div>
+                  <div className="step-item d-flex align-items-center mb-2">
+                    <span className="material-icons me-2 text-success">check_circle</span>
+                    <span>2. إدارة الحالة</span>
+                  </div>
+                  <div className="step-item d-flex align-items-center mb-2">
+                    <span className="material-icons me-2 text-success">check_circle</span>
+                    <span>3. إضافة المهام</span>
+                  </div>
+                  <div className="step-item d-flex align-items-center mb-2">
+                    <span className="material-icons me-2 text-success">check_circle</span>
+                    <span>4. عرض القائمة</span>
+                  </div>
+                  <div className="step-item d-flex align-items-center mb-2">
+                    <span className="material-icons me-2 text-success">check_circle</span>
+                    <span>5. وضع علامة مكتمل</span>
+                  </div>
+                  <div className="step-item d-flex align-items-center mb-2">
+                    <span className="material-icons me-2 text-success">check_circle</span>
+                    <span>6. حذف المهام</span>
+                  </div>
+                  <div className="step-item d-flex align-items-center mb-2">
+                    <span className="material-icons me-2 text-success">check_circle</span>
+                    <span>7. الإحصائيات</span>
+                  </div>
+                  <div className="step-item d-flex align-items-center mb-2">
+                    <span className="material-icons me-2 text-success">check_circle</span>
+                    <span>8. التنسيقات</span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="feature-card mt-4">
-              <h4>🧠 ما تعلمته</h4>
-              <div className="learning-summary">
-                <Badge bg="success" className="me-2 mb-2">useState</Badge>
-                <Badge bg="success" className="me-2 mb-2">Event Handling</Badge>
-                <Badge bg="success" className="me-2 mb-2">Lists & Keys</Badge>
-                <Badge bg="success" className="me-2 mb-2">Conditional Rendering</Badge>
-                <Badge bg="success" className="me-2 mb-2">Forms</Badge>
-                <Badge bg="success" className="me-2 mb-2">CSS Styling</Badge>
-                <Badge bg="success" className="me-2 mb-2">State Management</Badge>
-                <Badge bg="success" className="me-2 mb-2">Component Structure</Badge>
+              <div className="feature-card">
+                <h4>🧠 ما تعلمته</h4>
+                <div className="learning-summary">
+                  <Badge bg="success" className="me-2 mb-2">useState</Badge>
+                  <Badge bg="success" className="me-2 mb-2">Event Handling</Badge>
+                  <Badge bg="success" className="me-2 mb-2">Lists & Keys</Badge>
+                  <Badge bg="success" className="me-2 mb-2">Conditional Rendering</Badge>
+                  <Badge bg="success" className="me-2 mb-2">Forms</Badge>
+                  <Badge bg="success" className="me-2 mb-2">CSS Styling</Badge>
+                  <Badge bg="success" className="me-2 mb-2">State Management</Badge>
+                  <Badge bg="success" className="me-2 mb-2">Component Structure</Badge>
+                </div>
               </div>
-            </div>
 
-            <div className="feature-card mt-4">
-              <h4>🎯 تحدي إضافي</h4>
-              <p className="small mb-3">
-                جرب إضافة ميزة تعديل المهام عند النقر المزدوج عليها!
-              </p>
-              <CodeBlock>
-{`// نصيحة:
-const [editingId, setEditingId] = useState(null);
+              <div className="feature-card">
+                <h4>🎯 تحدي إضافي</h4>
+                <p className="small mb-3">
+                  جرب إضافة ميزة تعديل المهام عند النقر المزدوج عليها!
+                </p>
+                <CodeBlock>
+          {`// نصيحة:
+          const [editingId, setEditingId] = useState(null);
 
-// في المكون
-onDoubleClick={() => setEditingId(todo.id)}`}
-              </CodeBlock>
-              <Button variant="outline-primary" size="sm" className="mt-2">
-                قبول التحدي
-              </Button>
-            </div>
+          // في المكون
+          onDoubleClick={() => setEditingId(todo.id)}`}
+                </CodeBlock>
+                <Button variant="outline-primary" size="sm" className="mt-2">
+                  قبول التحدي
+                </Button>
+              </div>
 
-            <div className="feature-card mt-4">
-              <h4>📊 إحصائيات المشروع</h4>
-              <div className="project-stats">
-                <div className="stat-item mb-2">
-                  <strong style={{color: 'var(--primary-color)'}}>~100</strong> سطر كود
-                </div>
-                <div className="stat-item mb-2">
-                  <strong style={{color: 'var(--primary-color)'}}>8</strong> دوال React
-                </div>
-                <div className="stat-item mb-2">
-                  <strong style={{color: 'var(--primary-color)'}}>3</strong> useState hooks
-                </div>
-                <div className="stat-item mb-2">
-                  <strong style={{color: 'var(--primary-color)'}}>5</strong> event handlers
+              <div className="feature-card">
+                <h4>📊 إحصائيات المشروع</h4>
+                <div className="project-stats">
+                  <div className="stat-item mb-2">
+                    <strong style={{color: 'var(--primary-color)'}}>~100</strong> سطر كود
+                  </div>
+                  <div className="stat-item mb-2">
+                    <strong style={{color: 'var(--primary-color)'}}>8</strong> دوال React
+                  </div>
+                  <div className="stat-item mb-2">
+                    <strong style={{color: 'var(--primary-color)'}}>3</strong> useState hooks
+                  </div>
+                  <div className="stat-item mb-2">
+                    <strong style={{color: 'var(--primary-color)'}}>5</strong> event handlers
+                  </div>
                 </div>
               </div>
             </div>

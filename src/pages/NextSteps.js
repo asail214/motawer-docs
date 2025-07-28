@@ -432,75 +432,79 @@ const NextSteps = () => {
             </div>
           </Col>
 
+          // In NextSteps.js, find the sidebar section and replace it with this:
+
           {/* Sidebar */}
           <Col lg={3} md={4}>
-            <div className="feature-card sticky-top" style={{top: '100px'}}>
-              <h4>🎯 خارطة الطريق</h4>
-              <div className="roadmap-steps">
-                <div className="roadmap-item mb-3">
-                  <div className="d-flex align-items-center">
-                    <Badge bg="success" className="me-2">✓</Badge>
-                    <span>أساسيات React</span>
+            <div className="sidebar-container">
+              <div className="feature-card">
+                <h4>🎯 خارطة الطريق</h4>
+                <div className="roadmap-steps">
+                  <div className="roadmap-item mb-3">
+                    <div className="d-flex align-items-center">
+                      <Badge bg="success" className="me-2">✓</Badge>
+                      <span>أساسيات React</span>
+                    </div>
                   </div>
-                </div>
-                <div className="roadmap-item mb-3">
-                  <div className="d-flex align-items-center">
-                    <Badge bg="warning" className="me-2">1</Badge>
-                    <span>React Router</span>
+                  <div className="roadmap-item mb-3">
+                    <div className="d-flex align-items-center">
+                      <Badge bg="warning" className="me-2">1</Badge>
+                      <span>React Router</span>
+                    </div>
                   </div>
-                </div>
-                <div className="roadmap-item mb-3">
-                  <div className="d-flex align-items-center">
-                    <Badge bg="warning" className="me-2">2</Badge>
-                    <span>State Management</span>
+                  <div className="roadmap-item mb-3">
+                    <div className="d-flex align-items-center">
+                      <Badge bg="warning" className="me-2">2</Badge>
+                      <span>State Management</span>
+                    </div>
                   </div>
-                </div>
-                <div className="roadmap-item mb-3">
-                  <div className="d-flex align-items-center">
-                    <Badge bg="warning" className="me-2">3</Badge>
-                    <span>Testing & Performance</span>
+                  <div className="roadmap-item mb-3">
+                    <div className="d-flex align-items-center">
+                      <Badge bg="warning" className="me-2">3</Badge>
+                      <span>Testing & Performance</span>
+                    </div>
                   </div>
-                </div>
-                <div className="roadmap-item mb-3">
-                  <div className="d-flex align-items-center">
-                    <Badge bg="secondary" className="me-2">4</Badge>
-                    <span>Advanced Patterns</span>
+                  <div className="roadmap-item mb-3">
+                    <div className="d-flex align-items-center">
+                      <Badge bg="secondary" className="me-2">4</Badge>
+                      <span>Advanced Patterns</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div className="feature-card mt-4">
-              <h4>📊 إنجازاتك</h4>
-              <div className="achievements">
-                <div className="achievement-item mb-2">
-                  <span className="material-icons me-2 text-success">emoji_events</span>
-                  مطور React معتمد
-                </div>
-                <div className="achievement-item mb-2">
-                  <span className="material-icons me-2 text-success">build</span>
-                  باني تطبيقات
-                </div>
-                <div className="achievement-item mb-2">
-                  <span className="material-icons me-2 text-success">psychology</span>
-                  مفكر منطقي
-                </div>
-                <div className="achievement-item mb-2">
-                  <span className="material-icons me-2 text-success">rocket_launch</span>
-                  مستعد للمشاريع الحقيقية
+              <div className="feature-card">
+                <h4>📊 إنجازاتك</h4>
+                <div className="achievements">
+                  <div className="achievement-item mb-2">
+                    <span className="material-icons me-2 text-success">emoji_events</span>
+                    مطور React معتمد
+                  </div>
+                  <div className="achievement-item mb-2">
+                    <span className="material-icons me-2 text-success">build</span>
+                    باني تطبيقات
+                  </div>
+                  <div className="achievement-item mb-2">
+                    <span className="material-icons me-2 text-success">psychology</span>
+                    مفكر منطقي
+                  </div>
+                  <div className="achievement-item mb-2">
+                    <span className="material-icons me-2 text-success">rocket_launch</span>
+                    مستعد للمشاريع الحقيقية
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="feature-card mt-4">
-              <h4>🌟 نصيحة يومية</h4>
-              <blockquote style={{borderLeft: '4px solid var(--primary-color)', paddingLeft: '1rem', fontStyle: 'italic'}}>
-                "أفضل طريقة للتعلم هي البناء. ابن شيئاً جديداً كل أسبوع، مهما كان بسيطاً."
-              </blockquote>
-              <small className="text-muted">- مطور خبير</small>
+              <div className="feature-card">
+                <h4>🌟 نصيحة يومية</h4>
+                <blockquote style={{borderLeft: '4px solid var(--primary-color)', paddingLeft: '1rem', fontStyle: 'italic'}}>
+                  "أفضل طريقة للتعلم هي البناء. ابن شيئاً جديداً كل أسبوع، مهما كان بسيطاً."
+                </blockquote>
+                <small className="text-muted">- مطور خبير</small>
+              </div>
             </div>
-          </Col>
-        </Row>
+          </Col>        
+          </Row>
       </Container>
     </div>
   );

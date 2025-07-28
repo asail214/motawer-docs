@@ -402,65 +402,67 @@ code .
 
           {/* Sidebar */}
           <Col lg={3} md={4}>
-            <div className="feature-card sticky-top" style={{top: '100px'}}>
-              <h4>قائمة التحقق</h4>
-              <div className="checklist">
-                <div className="form-check mb-2">
-                  <input className="form-check-input" type="checkbox" id="nodejs"/>
-                  <label className="form-check-label" htmlFor="nodejs">
-                    تثبيت Node.js
-                  </label>
-                </div>
-                <div className="form-check mb-2">
-                  <input className="form-check-input" type="checkbox" id="vscode"/>
-                  <label className="form-check-label" htmlFor="vscode">
-                    تثبيت VS Code
-                  </label>
-                </div>
-                <div className="form-check mb-2">
-                  <input className="form-check-input" type="checkbox" id="extensions"/>
-                  <label className="form-check-label" htmlFor="extensions">
-                    تثبيت الإضافات
-                  </label>
-                </div>
-                <div className="form-check mb-2">
-                  <input className="form-check-input" type="checkbox" id="project"/>
-                  <label className="form-check-label" htmlFor="project">
-                    إنشاء أول مشروع
-                  </label>
-                </div>
-                <div className="form-check mb-2">
-                  <input className="form-check-input" type="checkbox" id="run"/>
-                  <label className="form-check-label" htmlFor="run">
-                    تشغيل المشروع بنجاح
-                  </label>
+            <div className="sidebar-container">
+              <div className="feature-card">
+                <h4>قائمة التحقق</h4>
+                <div className="checklist">
+                  <div className="form-check mb-2">
+                    <input className="form-check-input" type="checkbox" id="nodejs"/>
+                    <label className="form-check-label" htmlFor="nodejs">
+                      تثبيت Node.js
+                    </label>
+                  </div>
+                  <div className="form-check mb-2">
+                    <input className="form-check-input" type="checkbox" id="vscode"/>
+                    <label className="form-check-label" htmlFor="vscode">
+                      تثبيت VS Code
+                    </label>
+                  </div>
+                  <div className="form-check mb-2">
+                    <input className="form-check-input" type="checkbox" id="extensions"/>
+                    <label className="form-check-label" htmlFor="extensions">
+                      تثبيت الإضافات
+                    </label>
+                  </div>
+                  <div className="form-check mb-2">
+                    <input className="form-check-input" type="checkbox" id="project"/>
+                    <label className="form-check-label" htmlFor="project">
+                      إنشاء أول مشروع
+                    </label>
+                  </div>
+                  <div className="form-check mb-2">
+                    <input className="form-check-input" type="checkbox" id="run"/>
+                    <label className="form-check-label" htmlFor="run">
+                      تشغيل المشروع بنجاح
+                    </label>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="feature-card mt-4">
-              <h4>⚡ نصائح سريعة</h4>
-              <div className="tip-item mb-2">
-                <strong>Ctrl + C:</strong> لإيقاف الخادم
+              <div className="feature-card">
+                <h4>⚡ نصائح سريعة</h4>
+                <div className="tip-item mb-2">
+                  <strong>Ctrl + C:</strong> لإيقاف الخادم
+                </div>
+                <div className="tip-item mb-2">
+                  <strong>npm start:</strong> لتشغيل المشروع
+                </div>
+                <div className="tip-item mb-2">
+                  <strong>Ctrl + `:</strong> فتح Terminal في VS Code
+                </div>
+                <div className="tip-item mb-2">
+                  <strong>Ctrl + Shift + P:</strong> قائمة الأوامر
+                </div>
               </div>
-              <div className="tip-item mb-2">
-                <strong>npm start:</strong> لتشغيل المشروع
-              </div>
-              <div className="tip-item mb-2">
-                <strong>Ctrl + `:</strong> فتح Terminal في VS Code
-              </div>
-              <div className="tip-item mb-2">
-                <strong>Ctrl + Shift + P:</strong> قائمة الأوامر
-              </div>
-            </div>
 
-            <div className="feature-card mt-4">
-              <h4>📚 روابط مفيدة</h4>
-              <ul className="list-unstyled">
-                <li><a href="https://nodejs.org" target="_blank" rel="noopener noreferrer" className="text-decoration-none">Node.js الموقع الرسمي</a></li>
-                <li><a href="https://code.visualstudio.com" target="_blank" rel="noopener noreferrer" className="text-decoration-none">VS Code الموقع الرسمي</a></li>
-                <li><a href="https://create-react-app.dev" target="_blank" rel="noopener noreferrer" className="text-decoration-none">Create React App الدليل</a></li>
-              </ul>
+              <div className="feature-card">
+                <h4>📚 روابط مفيدة</h4>
+                <ul className="list-unstyled">
+                  <li><a href="https://nodejs.org" target="_blank" rel="noopener noreferrer" className="text-decoration-none">Node.js الموقع الرسمي</a></li>
+                  <li><a href="https://code.visualstudio.com" target="_blank" rel="noopener noreferrer" className="text-decoration-none">VS Code الموقع الرسمي</a></li>
+                  <li><a href="https://create-react-app.dev" target="_blank" rel="noopener noreferrer" className="text-decoration-none">Create React App الدليل</a></li>
+                </ul>
+              </div>
             </div>
           </Col>
         </Row>

@@ -525,3 +525,133 @@ body {
     height: 50vh;
   }
 }
+
+/* Add these styles to your existing src/styles/App.css file */
+
+/* Fixed Sidebar Styles */
+.sidebar-container {
+  position: sticky;
+  top: 100px; /* Adjusted for navbar height */
+  max-height: calc(100vh - 120px); /* Full viewport height minus navbar and some padding */
+  overflow-y: auto; /* Enable scrolling when content is too long */
+  padding-right: 0.5rem; /* Space for scrollbar */
+}
+
+/* Custom scrollbar for sidebar */
+.sidebar-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-container::-webkit-scrollbar-track {
+  background: var(--card-bg);
+  border-radius: 3px;
+}
+
+.sidebar-container::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+.sidebar-container::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Improve feature card spacing in sidebar */
+.sidebar-container .feature-card {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+}
+
+.sidebar-container .feature-card:last-child {
+  margin-bottom: 0;
+}
+
+/* Table of contents specific styles */
+.sidebar-container .feature-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.sidebar-container .feature-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-container .feature-card ul li {
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 0;
+}
+
+.sidebar-container .feature-card ul li a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.sidebar-container .feature-card ul li a:hover {
+  color: var(--primary-color);
+  background-color: rgba(97, 218, 251, 0.1);
+  padding-left: 1rem;
+}
+
+/* Progress section improvements */
+.progress-section {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.progress-section h6 {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.progress-section small {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Navigation section improvements */
+.navigation-section {
+  margin-top: 3rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .sidebar-container {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+    margin-top: 2rem;
+  }
+  
+  .sidebar-container .feature-card {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 0;
+    padding-top: calc(2rem + 80px);
+  }
+  
+  .sidebar-container {
+    margin-top: 1rem;
+  }
+  
+  .sidebar-container .feature-card {
+    padding: 1rem;
+  }
+}

@@ -209,20 +209,22 @@ const FrontendBasics = () => {
 
           {/* Sidebar */}
           <Col lg={3} md={4}>
-            <div className="feature-card sticky-top" style={{top: '100px'}}>
-              <h4>محتويات هذا الدرس</h4>
-              <ul className="list-unstyled">
-                <li><a href="#what-is-frontend" className="text-decoration-none">ما هو تطوير الواجهات؟</a></li>
-                <li><a href="#technologies" className="text-decoration-none">التقنيات المستخدمة</a></li>
-                <li><a href="#why-react" className="text-decoration-none">لماذا React؟</a></li>
-                <li><a href="#frontend-vs-backend" className="text-decoration-none">Frontend vs Backend</a></li>
-              </ul>
-            </div>
+            <div className="sidebar-container">
+              <div className="feature-card">
+                <h4>محتويات هذا الدرس</h4>
+                <ul className="list-unstyled">
+                  <li><a href="#what-is-frontend" className="text-decoration-none">ما هو تطوير الواجهات؟</a></li>
+                  <li><a href="#technologies" className="text-decoration-none">التقنيات المستخدمة</a></li>
+                  <li><a href="#why-react" className="text-decoration-none">لماذا React؟</a></li>
+                  <li><a href="#frontend-vs-backend" className="text-decoration-none">Frontend vs Backend</a></li>
+                </ul>
+              </div>
 
-            <div className="feature-card mt-4">
-              <h4>نصائح للمبتدئين</h4>
-              <div className="alert alert-info">
-                <strong>نصيحة:</strong> لا تقلق إذا بدت المفاهيم معقدة في البداية. التطوير مهارة تتحسن مع الوقت والممارسة!
+              <div className="feature-card">
+                <h4>نصائح للمبتدئين</h4>
+                <div className="alert alert-info">
+                  <strong>نصيحة:</strong> لا تقلق إذا بدت المفاهيم معقدة في البداية. التطوير مهارة تتحسن مع الوقت والممارسة!
+                </div>
               </div>
             </div>
           </Col>

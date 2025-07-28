@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Container, Row, Col, Card, Button, ProgressBar, Alert, Tabs, Tab } from 'react-bootstrap';
+import { Container, Row, Col, Card, ProgressBar, Alert, Tabs, Tab, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useProgress } from '../contexts/ProgressContext';
 
@@ -67,30 +67,30 @@ const CoreConcepts = () => {
                   <Tab eventKey="functional" title="المكونات الوظيفية">
                     <p>المكونات الوظيفية هي الطريقة الحديثة والمفضلة لكتابة المكونات:</p>
                     <CodeBlock>
-{`// مكون وظيفي بسيط
-function Welcome(props) {
-  return <h1>مرحباً، {props.name}!</h1>;
-}
+                      {`// مكون وظيفي بسيط
+                      function Welcome(props) {
+                        return <h1>مرحباً، {props.name}!</h1>;
+                      }
 
-// أو باستخدام Arrow Function
-const Welcome = (props) => {
-  return <h1>مرحباً، {props.name}!</h1>;
-}
+                      // أو باستخدام Arrow Function
+                      const Welcome = (props) => {
+                        return <h1>مرحباً، {props.name}!</h1>;
+                      }
 
-// استخدام المكون
-<Welcome name="أحمد" />`}
+                      // استخدام المكون
+                      <Welcome name="أحمد" />`}
                     </CodeBlock>
                   </Tab>
                   
                   <Tab eventKey="class" title="مكونات الفئة (مرجع)">
                     <p>الطريقة القديمة لكتابة المكونات (لا تستخدم في المشاريع الجديدة):</p>
                     <CodeBlock>
-{`// مكون فئة (Class Component)
-class Welcome extends React.Component {
-  render() {
-    return <h1>مرحباً، {this.props.name}!</h1>;
-  }
-}`}
+                      {`// مكون فئة (Class Component)
+                      class Welcome extends React.Component {
+                        render() {
+                          return <h1>مرحباً، {this.props.name}!</h1>;
+                        }
+                      }`}
                     </CodeBlock>
                     <Alert variant="warning">
                       <strong>نصيحة:</strong> استخدم المكونات الوظيفية دائماً في المشاريع الجديدة
@@ -119,23 +119,23 @@ class Welcome extends React.Component {
                   <Col md={6}>
                     <h6 style={{color: 'var(--primary-color)'}}>بدون JSX:</h6>
                     <CodeBlock>
-{`// صعب القراءة
-const element = React.createElement(
-  'h1',
-  {className: 'greeting'},
-  'مرحباً بالعالم!'
-);`}
+                      {`// صعب القراءة
+                      const element = React.createElement(
+                        'h1',
+                        {className: 'greeting'},
+                        'مرحباً بالعالم!'
+                      );`}
                     </CodeBlock>
                   </Col>
                   <Col md={6}>
                     <h6 style={{color: 'var(--primary-color)'}}>مع JSX:</h6>
                     <CodeBlock>
-{`// سهل القراءة
-const element = (
-  <h1 className="greeting">
-    مرحباً بالعالم!
-  </h1>
-);`}
+                      {`// سهل القراءة
+                      const element = (
+                        <h1 className="greeting">
+                          مرحباً بالعالم!
+                        </h1>
+                      );`}
                     </CodeBlock>
                   </Col>
                 </Row>
@@ -150,22 +150,22 @@ const element = (
 
                 <h6 style={{color: 'var(--primary-color)'}} className="mt-3">أمثلة على JSX:</h6>
                 <CodeBlock>
-{`function UserProfile() {
-  const user = {
-    name: 'سارة',
-    age: 25,
-    avatar: 'avatar.jpg'
-  };
+                  {`function UserProfile() {
+                    const user = {
+                      userName: 'سارة',
+                      age: 25,
+                      avatar: 'avatar.jpg'
+                    };
 
-  return (
-    <div className="user-profile">
-      <img src={user.avatar} alt="صورة المستخدم" />
-      <h2>{user.name}</h2>
-      <p>العمر: {user.age} سنة</p>
-      {user.age >= 18 && <span>بالغ</span>}
-    </div>
-  );
-}`}
+                    return (
+                      <div className="user-profile">
+                        <img src={user.avatar} alt="صورة المستخدم" />
+                        <h2>{user.userName}</h2>
+                        <p>العمر: {user.age} سنة</p>
+                        {user.age >= 18 && <span>بالغ</span>}
+                      </div>
+                    );
+                  }`}
                 </CodeBlock>
               </Card.Body>
             </Card>
@@ -177,41 +177,41 @@ const element = (
                 <p>Props هي البيانات التي تُمرر للمكونات من المكون الأب - مثل معاملات الدوال.</p>
 
                 <CodeBlock>
-{`// مكون يستقبل props
-function ProductCard(props) {
-  return (
-    <div className="product-card">
-      <img src={props.image} alt={props.name} />
-      <h3>{props.name}</h3>
-      <p>{props.price} ريال</p>
-      <p>{props.description}</p>
-    </div>
-  );
-}
+                  {`// مكون يستقبل props
+                  function ProductCard(props) {
+                    return (
+                      <div className="product-card">
+                        <img src={props.image} alt={props.name} />
+                        <h3>{props.name}</h3>
+                        <p>{props.price} ريال</p>
+                        <p>{props.description}</p>
+                      </div>
+                    );
+                  }
 
-// استخدام المكون مع تمرير props
-<ProductCard 
-  name="هاتف ذكي"
-  price={1500}
-  image="phone.jpg"
-  description="هاتف ذكي بمواصفات عالية"
-/>`}
+                  // استخدام المكون مع تمرير props
+                  <ProductCard 
+                    name="هاتف ذكي"
+                    price={1500}
+                    image="phone.jpg"
+                    description="هاتف ذكي بمواصفات عالية"
+                  />`}
                 </CodeBlock>
 
                 <h6 style={{color: 'var(--primary-color)'}} className="mt-3">Destructuring Props:</h6>
                 <p>طريقة أنظف لاستخدام props:</p>
                 <CodeBlock>
-{`// بدلاً من props.name, props.price...
-function ProductCard({ name, price, image, description }) {
-  return (
-    <div className="product-card">
-      <img src={image} alt={name} />
-      <h3>{name}</h3>
-      <p>{price} ريال</p>
-      <p>{description}</p>
-    </div>
-  );
-}`}
+                  {`// بدلاً من props.name, props.price...
+                  function ProductCard({ name, price, image, description }) {
+                    return (
+                      <div className="product-card">
+                        <img src={image} alt={name} />
+                        <h3>{name}</h3>
+                        <p>{price} ريال</p>
+                        <p>{description}</p>
+                      </div>
+                    );
+                  }`}
                 </CodeBlock>
 
                 <Alert variant="info">
@@ -227,52 +227,52 @@ function ProductCard({ name, price, image, description }) {
                 <p>State هي البيانات الداخلية للمكون التي يمكن تغييرها وتؤثر على ما يُعرض.</p>
 
                 <CodeBlock>
-{`import React, { useState } from 'react';
+                    {`import React, { useState } from 'react';
 
-function Counter() {
-  // تعريف state متغير
-  const [count, setCount] = useState(0);
+                    function Counter() {
+                      // تعريف state متغير
+                      const [count, setCount] = useState(0);
 
-  // دالة لزيادة العدد
-  const increment = () => {
-    setCount(count + 1);
-  };
+                      // دالة لزيادة العدد
+                      const increment = () => {
+                        setCount(count + 1);
+                      };
 
-  return (
-    <div>
-      <h2>العدد: {count}</h2>
-      <button onClick={increment}>زيادة</button>
-      <button onClick={() => setCount(count - 1)}>تقليل</button>
-      <button onClick={() => setCount(0)}>إعادة تعيين</button>
-    </div>
-  );
-}`}
+                      return (
+                        <div>
+                          <h2>العدد: {count}</h2>
+                          <button onClick={increment}>زيادة</button>
+                          <button onClick={() => setCount(count - 1)}>تقليل</button>
+                          <button onClick={() => setCount(0)}>إعادة تعيين</button>
+                        </div>
+                      );
+                    }`}
                 </CodeBlock>
 
                 <h6 style={{color: 'var(--primary-color)'}} className="mt-3">أنواع مختلفة من State:</h6>
                 <Row>
                   <Col md={6}>
                     <CodeBlock>
-{`// رقم
-const [count, setCount] = useState(0);
+                      {`// رقم
+                      const [count, setCount] = useState(0);
 
-// نص
-const [name, setName] = useState('');
+                      // نص
+                      const [name, setName] = useState('');
 
-// منطقي
-const [isVisible, setIsVisible] = useState(true);`}
+                      // منطقي
+                      const [isVisible, setIsVisible] = useState(true);`}
                     </CodeBlock>
                   </Col>
                   <Col md={6}>
                     <CodeBlock>
-{`// مصفوفة
-const [items, setItems] = useState([]);
+                      {`// مصفوفة
+                      const [items, setItems] = useState([]);
 
-// كائن
-const [user, setUser] = useState({
-  name: '',
-  email: ''
-});`}
+                      // كائن
+                      const [user, setUser] = useState({
+                        name: '',
+                        email: ''
+                      });`}
                     </CodeBlock>
                   </Col>
                 </Row>
@@ -295,42 +295,42 @@ const [user, setUser] = useState({
                 <p>في React، نتعامل مع أحداث المستخدم مثل النقر والكتابة بطريقة خاصة.</p>
 
                 <CodeBlock>
-{`function LoginForm() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+                  {`function LoginForm() {
+                    const [email, setEmail] = useState('');
+                    const [password, setPassword] = useState('');
 
-  // التعامل مع إرسال النموذج
-  const handleSubmit = (event) => {
-    event.preventDefault(); // منع إعادة تحميل الصفحة
-    
-    // التحقق من البيانات
-    if (email && password) {
-      console.log('تسجيل الدخول:', { email, password });
-    } else {
-      alert('يرجى ملء جميع الحقول');
-    }
-  };
+                    // التعامل مع إرسال النموذج
+                    const handleSubmit = (event) => {
+                      event.preventDefault(); // منع إعادة تحميل الصفحة
+                      
+                      // التحقق من البيانات
+                      if (email && password) {
+                        console.log('تسجيل الدخول:', { email, password });
+                      } else {
+                        alert('يرجى ملء جميع الحقول');
+                      }
+                    };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="email"
-        placeholder="البريد الإلكتروني"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      
-      <input
-        type="password"
-        placeholder="كلمة المرور"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      
-      <button type="submit">تسجيل الدخول</button>
-    </form>
-  );
-}`}
+                    return (
+                      <form onSubmit={handleSubmit}>
+                        <input
+                          type="email"
+                          placeholder="البريد الإلكتروني"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                        />
+                        
+                        <input
+                          type="password"
+                          placeholder="كلمة المرور"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                        />
+                        
+                        <button type="submit">تسجيل الدخول</button>
+                      </form>
+                    );
+                  }`}
                 </CodeBlock>
 
                 <h6 style={{color: 'var(--primary-color)'}} className="mt-3">أحداث شائعة:</h6>
@@ -365,7 +365,7 @@ const [user, setUser] = useState({
                       <h6 style={{color: 'var(--primary-color)'}}>useState</h6>
                       <p>إدارة حالة المكون</p>
                       <CodeBlock>
-{`const [count, setCount] = useState(0);`}
+                        {`const [count, setCount] = useState(0);`}
                       </CodeBlock>
                     </div>
 
@@ -373,9 +373,9 @@ const [user, setUser] = useState({
                       <h6 style={{color: 'var(--primary-color)'}}>useEffect</h6>
                       <p>تنفيذ عمليات جانبية</p>
                       <CodeBlock>
-{`useEffect(() => {
-  document.title = \`العدد: \${count}\`;
-}, [count]);`}
+                        {`useEffect(() => {
+                          document.title = \`العدد: \${count}\`;
+                        }, [count]);`}
                       </CodeBlock>
                     </div>
                   </Col>
@@ -384,7 +384,7 @@ const [user, setUser] = useState({
                       <h6 style={{color: 'var(--primary-color)'}}>useContext</h6>
                       <p>استهلاك Context</p>
                       <CodeBlock>
-{`const theme = useContext(ThemeContext);`}
+                        {`const theme = useContext(ThemeContext);`}
                       </CodeBlock>
                     </div>
 
@@ -392,10 +392,10 @@ const [user, setUser] = useState({
                       <h6 style={{color: 'var(--primary-color)'}}>useReducer</h6>
                       <p>إدارة حالة معقدة</p>
                       <CodeBlock>
-{`const [state, dispatch] = useReducer(
-  reducer, 
-  initialState
-);`}
+                        {`const [state, dispatch] = useReducer(
+                          reducer, 
+                          initialState
+                        );`}
                       </CodeBlock>
                     </div>
                   </Col>
@@ -421,68 +421,68 @@ const [user, setUser] = useState({
                 <Tabs defaultActiveKey="basic" className="mb-3">
                   <Tab eventKey="basic" title="الاستخدام الأساسي">
                     <CodeBlock>
-{`import React, { useState, useEffect } from 'react';
+                      {`import React, { useState, useEffect } from 'react';
 
-function Timer() {
-  const [seconds, setSeconds] = useState(0);
+                      function Timer() {
+                        const [seconds, setSeconds] = useState(0);
 
-  // يعمل عند كل تحديث
-  useEffect(() => {
-    document.title = \`المؤقت: \${seconds} ثانية\`;
-  });
+                        // يعمل عند كل تحديث
+                        useEffect(() => {
+                          document.title = \`المؤقت: \${seconds} ثانية\`;
+                        });
 
-  return (
-    <div>
-      <h2>{seconds} ثانية</h2>
-      <button onClick={() => setSeconds(seconds + 1)}>
-        زيادة
-      </button>
-    </div>
-  );
-}`}
+                        return (
+                          <div>
+                            <h2>{seconds} ثانية</h2>
+                            <button onClick={() => setSeconds(seconds + 1)}>
+                              زيادة
+                            </button>
+                          </div>
+                        );
+                      }`}
                     </CodeBlock>
                   </Tab>
 
                   <Tab eventKey="dependency" title="مع Dependencies">
                     <CodeBlock>
-{`function UserProfile({ userId }) {
-  const [user, setUser] = useState(null);
+                    {`function UserProfile({ userId }) {
+                      const [user, setUser] = useState(null);
 
-  // يعمل عند تغيير userId فقط
-  useEffect(() => {
-    fetchUser(userId).then(setUser);
-  }, [userId]); // dependency array
+                      // يعمل عند تغيير userId فقط
+                      useEffect(() => {
+                        fetchUser(userId).then(setUser);
+                      }, [userId]); // dependency array
 
-  return user ? (
-    <div>
-      <h2>{user.name}</h2>
-      <p>{user.email}</p>
-    </div>
-  ) : (
-    <p>جاري التحميل...</p>
-  );
-}`}
+                      return user ? (
+                        <div>
+                          <h2>{user.name}</h2>
+                          <p>{user.email}</p>
+                        </div>
+                      ) : (
+                        <p>جاري التحميل...</p>
+                      );
+                    }`}
                     </CodeBlock>
                   </Tab>
 
                   <Tab eventKey="cleanup" title="التنظيف">
                     <CodeBlock>
-{`function Clock() {
-  const [time, setTime] = useState(new Date());
+                      {`function Clock() {
+                        const [time, setTime] = useState(new Date());
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
+                        useEffect(() => {
+                          const interval = setInterval(() => {
+                            setTime(new Date());
+                          }, 1000);
 
-    // دالة التنظيف
-    return () => {
-      clearInterval(interval);
-    };
-  }, []); // مصفوفة فارغة = يعمل مرة واحدة
+                          // دالة التنظيف
+                          return () => {
+                            clearInterval(interval);
+                          };
+                        }, []); // مصفوفة فارغة = يعمل مرة واحدة
 
-  return <h2>{time.toLocaleTimeString()}</h2>;
-}`}
+                        return <h2>{time.toLocaleTimeString()}</h2>;
+                      }`}
                     </CodeBlock>
                   </Tab>
                 </Tabs>
@@ -506,44 +506,44 @@ function Timer() {
                 <p>في React، نستخدم map() لعرض قوائم البيانات، مع أهمية استخدام key فريد لكل عنصر.</p>
 
                 <CodeBlock>
-{`function TodoList() {
-  const [todos, setTodos] = useState([
-    { id: 1, text: 'تعلم React', completed: false },
-    { id: 2, text: 'بناء مشروع', completed: false },
-    { id: 3, text: 'نشر التطبيق', completed: true }
-  ]);
+                {`function TodoList() {
+                  const [todos, setTodos] = useState([
+                    { id: 1, text: 'تعلم React', completed: false },
+                    { id: 2, text: 'بناء مشروع', completed: false },
+                    { id: 3, text: 'نشر التطبيق', completed: true }
+                  ]);
 
-  const toggleTodo = (id) => {
-    setTodos(todos.map(todo => 
-      todo.id === id 
-        ? { ...todo, completed: !todo.completed }
-        : todo
-    ));
-  };
+                  const toggleTodo = (id) => {
+                    setTodos(todos.map(todo => 
+                      todo.id === id 
+                        ? { ...todo, completed: !todo.completed }
+                        : todo
+                    ));
+                  };
 
-  return (
-    <div>
-      <h2>قائمة المهام</h2>
-      <ul>
-        {todos.map(todo => (
-          <li 
-            key={todo.id} // مفتاح فريد مهم!
-            style={{ 
-              textDecoration: todo.completed ? 'line-through' : 'none' 
-            }}
-          >
-            <input
-              type="checkbox"
-              checked={todo.completed}
-              onChange={() => toggleTodo(todo.id)}
-            />
-            {todo.text}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}`}
+                  return (
+                    <div>
+                      <h2>قائمة المهام</h2>
+                      <ul>
+                        {todos.map(todo => (
+                          <li 
+                            key={todo.id} // مفتاح فريد مهم!
+                            style={{ 
+                              textDecoration: todo.completed ? 'line-through' : 'none' 
+                            }}
+                          >
+                            <input
+                              type="checkbox"
+                              checked={todo.completed}
+                              onChange={() => toggleTodo(todo.id)}
+                            />
+                            {todo.text}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                }`}
                 </CodeBlock>
 
                 <Alert variant="warning">
@@ -557,38 +557,38 @@ function Timer() {
 
                 <h6 style={{color: 'var(--primary-color)'}} className="mt-3">أمثلة أخرى على القوائم:</h6>
                 <CodeBlock>
-{`// قائمة منتجات
-function ProductList({ products }) {
-  return (
-    <div className="product-grid">
-      {products.map(product => (
-        <div key={product.id} className="product-card">
-          <img src={product.image} alt={product.name} />
-          <h3>{product.name}</h3>
-          <p>{product.price} ريال</p>
-        </div>
-      ))}
-    </div>
-  );
-}
+                  {`// قائمة منتجات
+                  function ProductList({ products }) {
+                    return (
+                      <div className="product-grid">
+                        {products.map(product => (
+                          <div key={product.id} className="product-card">
+                            <img src={product.image} alt={product.name} />
+                            <h3>{product.name}</h3>
+                            <p>{product.price} ريال</p>
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  }
 
-// قائمة بشروط
-function MessageList({ messages }) {
-  return (
-    <div>
-      {messages.length === 0 ? (
-        <p>لا توجد رسائل</p>
-      ) : (
-        messages.map(message => (
-          <div key={message.id} className="message">
-            <strong>{message.sender}:</strong>
-            <span>{message.text}</span>
-          </div>
-        ))
-      )}
-    </div>
-  );
-}`}
+                  // قائمة بشروط
+                  function MessageList({ messages }) {
+                    return (
+                      <div>
+                        {messages.length === 0 ? (
+                          <p>لا توجد رسائل</p>
+                        ) : (
+                          messages.map(message => (
+                            <div key={message.id} className="message">
+                              <strong>{message.sender}:</strong>
+                              <span>{message.text}</span>
+                            </div>
+                          ))
+                        )}
+                      </div>
+                    );
+                  }`}
                 </CodeBlock>
               </Card.Body>
             </Card>
@@ -602,59 +602,59 @@ function MessageList({ messages }) {
                 <Tabs defaultActiveKey="if-else" className="mb-3">
                   <Tab eventKey="if-else" title="If/Else">
                     <CodeBlock>
-{`function LoginButton({ isLoggedIn, onLogin, onLogout }) {
-  if (isLoggedIn) {
-    return (
-      <button onClick={onLogout}>
-        تسجيل خروج
-      </button>
-    );
-  } else {
-    return (
-      <button onClick={onLogin}>
-        تسجيل دخول
-      </button>
-    );
-  }
-}`}
+                      {`function LoginButton({ isLoggedIn, onLogin, onLogout }) {
+                        if (isLoggedIn) {
+                          return (
+                            <button onClick={onLogout}>
+                              تسجيل خروج
+                            </button>
+                          );
+                        } else {
+                          return (
+                            <button onClick={onLogin}>
+                              تسجيل دخول
+                            </button>
+                          );
+                        }
+                      }`}
                     </CodeBlock>
                   </Tab>
 
                   <Tab eventKey="ternary" title="Ternary Operator">
                     <CodeBlock>
-{`function Greeting({ user }) {
-  return (
-    <div>
-      {user ? (
-        <h1>مرحباً، {user.name}!</h1>
-      ) : (
-        <h1>مرحباً، زائر!</h1>
-      )}
-    </div>
-  );
-}`}
+                      {`function Greeting({ user }) {
+                        return (
+                          <div>
+                            {user ? (
+                              <h1>مرحباً، {user.name}!</h1>
+                            ) : (
+                              <h1>مرحباً، زائر!</h1>
+                            )}
+                          </div>
+                        );
+                      }`}
                     </CodeBlock>
                   </Tab>
 
                   <Tab eventKey="logical" title="Logical &&">
                     <CodeBlock>
-{`function Notifications({ notifications }) {
-  return (
-    <div>
-      {notifications.length > 0 && (
-        <div className="notification-badge">
-          {notifications.length}
-        </div>
-      )}
-      
-      <h2>الإشعارات</h2>
-      
-      {notifications.length === 0 && (
-        <p>لا توجد إشعارات جديدة</p>
-      )}
-    </div>
-  );
-}`}
+                      {`function Notifications({ notifications }) {
+                        return (
+                          <div>
+                            {notifications.length > 0 && (
+                              <div className="notification-badge">
+                                {notifications.length}
+                              </div>
+                            )}
+                            
+                            <h2>الإشعارات</h2>
+                            
+                            {notifications.length === 0 && (
+                              <p>لا توجد إشعارات جديدة</p>
+                            )}
+                          </div>
+                        );
+                      }`}
                     </CodeBlock>
                   </Tab>
                 </Tabs>
@@ -693,58 +693,60 @@ function MessageList({ messages }) {
           </Col>
 
           {/* Sidebar */}
-            <Col lg={3} md={4}>
-            <div className="feature-card sticky-top" style={{top: '100px'}}>
-              <h4>محتويات هذا الدرس</h4>
-              <ul className="list-unstyled">
-                <li><a href="#components" className="text-decoration-none">المكونات</a></li>
-                <li><a href="#jsx" className="text-decoration-none">JSX</a></li>
-                <li><a href="#props" className="text-decoration-none">Props</a></li>
-                <li><a href="#state" className="text-decoration-none">State</a></li>
-                <li><a href="#events" className="text-decoration-none">الأحداث</a></li>
-                <li><a href="#hooks" className="text-decoration-none">Hooks</a></li>
-                <li><a href="#useeffect" className="text-decoration-none">useEffect</a></li>
-                <li><a href="#lists" className="text-decoration-none">القوائم</a></li>
-                <li><a href="#conditional" className="text-decoration-none">العرض الشرطي</a></li>
-              </ul>
-            </div>
+          <Col lg={3} md={4}>
+            <div className="sidebar-container">
+              <div className="feature-card">
+                <h4>محتويات هذا الدرس</h4>
+                <ul className="list-unstyled">
+                  <li><a href="#components" className="text-decoration-none">المكونات</a></li>
+                  <li><a href="#jsx" className="text-decoration-none">JSX</a></li>
+                  <li><a href="#props" className="text-decoration-none">Props</a></li>
+                  <li><a href="#state" className="text-decoration-none">State</a></li>
+                  <li><a href="#events" className="text-decoration-none">الأحداث</a></li>
+                  <li><a href="#hooks" className="text-decoration-none">Hooks</a></li>
+                  <li><a href="#useeffect" className="text-decoration-none">useEffect</a></li>
+                  <li><a href="#lists" className="text-decoration-none">القوائم</a></li>
+                  <li><a href="#conditional" className="text-decoration-none">العرض الشرطي</a></li>
+                </ul>
+              </div>
 
-            <div className="feature-card mt-4">
-              <h4>🎯 أهداف التعلم</h4>
-              <div className="learning-objectives">
-                <div className="objective-item mb-2">
-                  <span className="material-icons me-2 text-success">check_circle</span>
-                  فهم المكونات والـ JSX
-                </div>
-                <div className="objective-item mb-2">
-                  <span className="material-icons me-2 text-success">check_circle</span>
-                  التعامل مع Props و State
-                </div>
-                <div className="objective-item mb-2">
-                  <span className="material-icons me-2 text-success">check_circle</span>
-                  استخدام useState و useEffect
-                </div>
-                <div className="objective-item mb-2">
-                  <span className="material-icons me-2 text-success">check_circle</span>
-                  عرض القوائم والبيانات
+              <div className="feature-card">
+                <h4>🎯 أهداف التعلم</h4>
+                <div className="learning-objectives">
+                  <div className="objective-item mb-2">
+                    <span className="material-icons me-2 text-success">check_circle</span>
+                    فهم المكونات والـ JSX
+                  </div>
+                  <div className="objective-item mb-2">
+                    <span className="material-icons me-2 text-success">check_circle</span>
+                    التعامل مع Props و State
+                  </div>
+                  <div className="objective-item mb-2">
+                    <span className="material-icons me-2 text-success">check_circle</span>
+                    استخدام useState و useEffect
+                  </div>
+                  <div className="objective-item mb-2">
+                    <span className="material-icons me-2 text-success">check_circle</span>
+                    عرض القوائم والبيانات
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="feature-card mt-4">
-              <h4>⚡ مراجعة سريعة</h4>
-              <div className="quick-review">
-                <div className="review-item mb-2">
-                  <strong>مكون:</strong> دالة تُرجع JSX
-                </div>
-                <div className="review-item mb-2">
-                  <strong>Props:</strong> بيانات من المكون الأب
-                </div>
-                <div className="review-item mb-2">
-                  <strong>State:</strong> بيانات داخلية قابلة للتغيير
-                </div>
-                <div className="review-item mb-2">
-                  <strong>useEffect:</strong> للعمليات الجانبية
+              <div className="feature-card">
+                <h4>⚡ مراجعة سريعة</h4>
+                <div className="quick-review">
+                  <div className="review-item mb-2">
+                    <strong>مكون:</strong> دالة تُرجع JSX
+                  </div>
+                  <div className="review-item mb-2">
+                    <strong>Props:</strong> بيانات من المكون الأب
+                  </div>
+                  <div className="review-item mb-2">
+                    <strong>State:</strong> بيانات داخلية قابلة للتغيير
+                  </div>
+                  <div className="review-item mb-2">
+                    <strong>useEffect:</strong> للعمليات الجانبية
+                  </div>
                 </div>
               </div>
             </div>
